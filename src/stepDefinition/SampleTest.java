@@ -21,16 +21,17 @@ public class SampleTest {
 		
 	}
 
-	@When("^I enters the email and password$")
-	public void I_enters_the_email_and_password() throws Throwable {
-	   driver.findElement(By.id("email")).sendKeys("Amit@hghjgj.com");
-		driver.findElement(By.id("pass")).sendKeys("amitttrvh");
+	@When("^I enters the \"([^\"]*)\" and \"([^\"]*)\"$")
+	public void I_enters_the_and(String username, String pass) throws Throwable {
+	   driver.findElement(By.id("email")).sendKeys(username);
+		driver.findElement(By.id("pass")).sendKeys(pass);
 		
 	}
 
 	@Then("^User should be able to login Successfully$")
 	public void User_should_be_able_to_login_Successfully() throws Throwable {
-	    driver.findElement(By.xpath("//*[@type='submit' and @id='u_0_4']")).click();
+	   // driver.findElement(By.xpath("//*[@type='submit' and @id='u_0_4']")).click();
+		driver.quit();
 	}
 
 	
